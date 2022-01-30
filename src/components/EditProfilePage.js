@@ -17,7 +17,7 @@ function EditProfilePage({ currentUser, photoURL, setPhotoURL }) {
     const fileRef = ref(storage, currentUser.uid + '.png');
     setLoading(true);
     const snapshot = await uploadBytes(fileRef, file);
-    setPhotoURL = await getDownloadURL(fileRef);
+    const photoURL = await getDownloadURL(fileRef);
     updateProfile(currentUser, { photoURL });
     setLoading(false);
     alert('Upload complete');
